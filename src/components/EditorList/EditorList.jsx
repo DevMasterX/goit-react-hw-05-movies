@@ -9,7 +9,7 @@ const EditorList = ({ films }) => {
     <List>
       {films.map(film => (
         <Item key={film.id}>
-          {/* <MovieLink to={`/movies/${film.id}`} state={{ from: location }}> */}
+     
           <MovieLink to={{ pathname: `/movies/${film.id}`, state: { from: location.pathname } }}>
             {film.title}
           </MovieLink>

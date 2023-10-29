@@ -16,7 +16,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  // const backLinkHref = useRef(location.state?.from ?? '/');
+
 
   useEffect(() => {
     const fetchMovieDetailsFilms = () => {
@@ -51,14 +51,6 @@ const MovieDetails = () => {
     original_title,
   } = movieInfo || {};
 
-  
-
-  // const handleClickBackBtn =() => {
-  //   navigate(location.state)
-  // }
-  // const handleClickBackBtn =() => {
-  //   navigate(location.state)
-  // }
 
   const handleClickBackBtn = () => {
     if (location.state && location.state.from) {
@@ -70,13 +62,6 @@ const MovieDetails = () => {
 
   return (
     <>
-      {/* <Link to={location.state?.from ?? '/'}>
-        <Button type="button">Go back</Button>
-      </Link> */}
-
-      {/* <Link to={backLinkHref.current}>
-        <Button type="button">Go back</Button>
-      </Link> */}
 
 <Button onClick={handleClickBackBtn} type="button">Go back</Button>
 
