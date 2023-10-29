@@ -31,7 +31,7 @@ const Cast = () => {
   return (
     <div>
       {loading && <Loader />}
-
+{actors.length !== 0 && (
       <List>
         {actors.map(({ id, profile_path, original_name, name, character }) => (
           <li key={id}>
@@ -48,7 +48,10 @@ const Cast = () => {
             <Text>Character: {character}</Text>
           </li>
         ))}
-      </List>
+      </List>)}
+      {actors.length === 0 && (
+        <div>We don't have any cast for this movie</div>
+      )}
     </div>
   );
 };
