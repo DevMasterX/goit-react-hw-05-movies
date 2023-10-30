@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { SearchForm, Input, Button } from './Form.styled';
 import { useSearchParams } from 'react-router-dom';
 
@@ -32,8 +32,8 @@ const query = searchParams.get('search')
   );
 };
 
-Form.propTypes = {
-  searchMovies: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   searchMovies: PropTypes.func.isRequired,
+// };
 
 export default Form;
