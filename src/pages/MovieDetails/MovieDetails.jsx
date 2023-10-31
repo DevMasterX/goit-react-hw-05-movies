@@ -1,14 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/TmbdApi';
 import Loader from 'components/Loader/Loader';
-import {
-  Container,
-  List,
-  ListInfo,
-  LinkInfo,
-  Button,
-} from './MovieDetails.styled';
+import { Container, List, ListInfo, LinkInfo } from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -16,11 +10,7 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(false);
   const location = useLocation();
 
-  console.log(location.state);
-  // const navigate = useNavigate();
-  // const refLocation = useRef(location.state ?? '/');
-  // const backLinkHref = useRef(location.state?.from ?? '/movies');
-  const backLinkHref = location.state?.from ?? '/movies';
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     const fetchMovieDetailsFilms = () => {
@@ -55,31 +45,11 @@ const MovieDetails = () => {
     original_title,
   } = movieInfo || {};
 
-  // const handleClickBackBtn = () => {
-  //   if (location.state && location.state.from) {
-  //       navigate(location.state.from);
-  //   } else {
-  //       navigate('/');
-  //   }
-  // }
-  // const handleClickBackBtn = () => {
-  //   navigate(refLocation.current);
-
-  // };
-
-  // console.log(`current: ${refLocation.current})
-
   return (
     <>
-      {/* <Link to={backLinkHref}>
-        <Button>🡄 Go back</Button>
-      </Link> */}
-      <Link to={backLinkHref}>
+      <Link to={backLinkHref.current}>
         <div>🡄 Go back</div>
       </Link>
-      {/* <Button onClick={handleClickBackBtn} type="button">
-        Go back
-      </Button> */}
 
       {loading && <Loader />}
 
