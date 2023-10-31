@@ -5,12 +5,12 @@ import { useSearchParams } from 'react-router-dom';
 
 const Form = ({ searchMovies }) => {
   // const [query, setQuery] = useState('');
-const [searchParams, setSearchParams]=useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
 
-const query = searchParams.get('search')
+  const query = searchParams.get('search');
 
   const handleInputChange = event => {
-    setSearchParams({search: event.target.value});
+    setSearchParams({ search: event.target.value });
   };
 
   const handleSubmit = event => {

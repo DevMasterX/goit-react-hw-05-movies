@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Outlet, useLocation, Link } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/TmbdApi';
 import Loader from 'components/Loader/Loader';
@@ -15,9 +15,12 @@ const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const location = useLocation();
+
+  console.log(location.state);
   // const navigate = useNavigate();
   // const refLocation = useRef(location.state ?? '/');
-  const backLinkHref = useRef(location.state?.from ?? '/movies');
+  // const backLinkHref = useRef(location.state?.from ?? '/movies');
+  const backLinkHref = location.state?.from ?? '/movies';
 
   useEffect(() => {
     const fetchMovieDetailsFilms = () => {
@@ -61,14 +64,14 @@ const MovieDetails = () => {
   // }
   // const handleClickBackBtn = () => {
   //   navigate(refLocation.current);
-    
+
   // };
 
   // console.log(`current: ${refLocation.current})
 
   return (
     <>
-    <Link to={backLinkHref.current}>
+      <Link to={backLinkHref}>
         <Button>🡄 Go back</Button>
       </Link>
       {/* <Button onClick={handleClickBackBtn} type="button">
