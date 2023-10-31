@@ -71,8 +71,11 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backLinkHref}>
+      {/* <Link to={backLinkHref}>
         <Button>🡄 Go back</Button>
+      </Link> */}
+      <Link to={backLinkHref}>
+        <div>🡄 Go back</div>
       </Link>
       {/* <Button onClick={handleClickBackBtn} type="button">
         Go back
